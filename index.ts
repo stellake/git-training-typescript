@@ -1,4 +1,8 @@
-export function computeFibonacciNumber(position: number): number {
+export function computeFibonacciNumber(position: number, recursion: boolean = false): number {
+    if (recursion) {
+        return recursiveFibonacci(1, 1, position - 2);
+    }
+
     if (position === 0) {
         return 0;
     }
@@ -23,4 +27,14 @@ export function computeFibonacciNumber(position: number): number {
         currentPosition++;
     }
     return j;
+}
+
+export function recursiveFibonacci(previous: number, current: number, stepsLeft: number): number {
+    if (stepsLeft < 0) {
+        return 1;
+    }
+    if (stepsLeft === 0) {
+        return current;
+    }
+    return recursiveFibonacci(current, previous + current, stepsLeft - 1);
 }
