@@ -4,8 +4,7 @@ export function computeFibonacciNumber(position: number): number {
     }
 
     if (position < 0) {
-        const positionIsOdd = position % 2 === -1;
-        return computeFibonacciNumber(-position) * (positionIsOdd ? 1 : -1);
+        return computeNegativeFibonacci(position);
     }
 
     let i = 1;
@@ -23,4 +22,13 @@ export function computeFibonacciNumber(position: number): number {
         currentPosition++;
     }
     return j;
+}
+
+export function computeNegativeFibonacci(position: number): number {
+    if (position >= 0) {
+        throw new Error('position must be less than zero');
+    }
+    const resultIsNegative = position % 2 === 0;
+    const absoluteResult = computeFibonacciNumber(-position);
+    return resultIsNegative ? absoluteResult * (-1) : absoluteResult;
 }
