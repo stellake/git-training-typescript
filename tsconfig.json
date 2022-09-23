@@ -1,0 +1,12 @@
+{
+  "include": ["index.ts", "./tests/*"],
+  "compilerOptions": {
+    "outDir": "./out",
+    "target": "es2016",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
