@@ -1,6 +1,6 @@
 export function computeFibonacciNumber(position: number, recursion: boolean = false): number {
     if (recursion) {
-        return recursiveFibonacci(1, 1, position - 2);
+        return recursiveFibonacci(position);
     }
 
     if (position === 0) {
@@ -29,12 +29,16 @@ export function computeFibonacciNumber(position: number, recursion: boolean = fa
     return j;
 }
 
-export function recursiveFibonacci(previous: number, current: number, stepsLeft: number): number {
-    if (stepsLeft < 0) {
-        return 1;
+
+export function recursiveFibonacci(initialPosition: number, left: number = 0, right: number = 1, position: number = initialPosition): number {
+    if (initialPosition === 0) {
+        return 0;
     }
-    if (stepsLeft === 0) {
-        return current;
+    if (position === 0) {
+        return left;
     }
-    return recursiveFibonacci(current, previous + current, stepsLeft - 1);
+    if (initialPosition > 0) {
+        return recursiveFibonacci(initialPosition, right, left + right, position - 1);
+    }
+    return recursiveFibonacci(initialPosition, right - left, left, position + 1);
 }
