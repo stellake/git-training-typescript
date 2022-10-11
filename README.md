@@ -6,7 +6,8 @@ This is a training exercise in dealing with and resolving conflicts using Git.
    This is so that you can push the results of your work to a place that won't affect other people.
 2. Clone the fork.
 3. Open the project with an IDE of your choice.
-4. Run the tests - ```npm run test```
+4. Install the packages - ```npm install```
+5. Run the tests - ```npm run test```
 
 ### Task
 This repository has several branches.
